@@ -1,6 +1,10 @@
 {
   "name": "purescript",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexknvl/purescript-stablename.git"
+  },
   "ignore": [
     "**/.*",
     "node_modules",
