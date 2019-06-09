@@ -5,7 +5,7 @@ import Prelude
 import Effect (Effect)
 import Effect.Exception (throwException, error)
 
-import Effect.StableName (makeStableName)
+import Effect.StableName (makeStableName, eqStableName)
 
 data Foo = Foo String
 data Bar = Bar String
@@ -31,6 +31,9 @@ main = do
   assert (foo1 /= foo2) "unequal refs to data"
   assert (foo3 == foo3) "newtypes"
   assert (foo3 == foo4) "newtypes"
+
+  assert (eqStableName foo3 bar2) "eqStableName newtype"
+  assert (not eqStableName foo1 bar1) "not eqStableName data"
 
   foo5 <- makeStableName $ foo
   assert (foo1 == foo5) "equal refs to data"

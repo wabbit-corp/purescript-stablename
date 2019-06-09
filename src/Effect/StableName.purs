@@ -1,4 +1,4 @@
-module Effect.StableName (StableName, makeStableName) where
+module Effect.StableName (StableName, makeStableName, eqStableName, hashStableName) where
 
 import Prelude (class Eq)
 import Effect (Effect)
@@ -25,7 +25,7 @@ foreign import makeStableName :: forall a. a -> Effect (StableName a)
 
 -- | Equality on 'StableName' that does not require that the types of
 -- the arguments match.
-foreign import eqStableName :: forall a. StableName a -> StableName b -> Boolean
+foreign import eqStableName :: forall a b. StableName a -> StableName b -> Boolean
 
 -- | Convert a 'StableName' to an 'Int'.  The 'Int' returned is not
 -- necessarily unique; several 'StableName's may map to the same 'Int'
