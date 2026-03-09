@@ -19,12 +19,12 @@ assert _ desc = throwException (error desc)
 
 main :: Effect Unit
 main = do
-  let foo = Foo  "foo"
+  let foo = Foo "foo"
   foo1 <- makeStableName $ foo
-  foo2 <- makeStableName $ Foo  "foo"
+  foo2 <- makeStableName $ Foo "foo"
   foo3 <- makeStableName $ Foo' "foo"
   foo4 <- makeStableName $ Foo' "foo"
-  bar1 <- makeStableName $ Bar  "foo"
+  bar1 <- makeStableName $ Bar "foo"
   bar2 <- makeStableName $ Bar' "foo"
 
   assert (foo1 == foo1) "equal refs to data"
